@@ -14,6 +14,7 @@ export class GameModel extends ModelDecorator {
         if (!this.UVunwrapped)
             return new Error("Model is not UV unwrapped")
         this.textureQuality = quality;
+        return true
     }
 
     public unwrap() {

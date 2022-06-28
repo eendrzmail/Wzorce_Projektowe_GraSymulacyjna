@@ -9,8 +9,8 @@ export class ModelDecorator extends AbstractModel {
         this.model = model;
     }
 
-    public addModel(AbstractModel: AbstractModel): void {
-        this.model.addModel(AbstractModel);
+    public addModel(AbstractModel: AbstractModel): boolean {
+        return this.model.addModel(AbstractModel);
     }
     public removeModel(AbstractModel: AbstractModel): void {
         this.model.removeModel(AbstractModel);
@@ -37,5 +37,7 @@ export class ModelDecorator extends AbstractModel {
         this.model.removeModifier(modifier)
     }
     public modelGeometry(): void { }
+
+    public getModels = () => this.model.getModels();
 
 }

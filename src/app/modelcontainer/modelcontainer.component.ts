@@ -22,11 +22,18 @@ export class ModelcontainerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  allModels$ = this.modelsService.createdModels$;
+  //to zmaineić flattenmodel
+  // allModels$ = this.modelsService.createdModels$;
+  
+  composites$ = this.modelsService.getCompositesObservable()
 
   moveModel(model: AbstractModel, dest: AbstractModel) {
     if (model.getId() != dest.getId())
       this.modelsService.moveModel(model, dest)
+  }
+
+  decorateModel(model: AbstractModel, decorator: string){
+    this.modelsService.decorateModel(model, decorator)
   }
 
 }
