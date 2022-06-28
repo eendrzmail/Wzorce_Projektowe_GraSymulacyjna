@@ -24,8 +24,9 @@ export class GamecontainerComponent implements OnInit {
     })
   }
 
-  selectModel(model: AbstractModel | null) {
-    this.modelService.selectModel2(model)
+  selectModel(model: AbstractModel | undefined) {
+    this.model = model;
+    // this.modelService.selectModel(model)
   }
 
 

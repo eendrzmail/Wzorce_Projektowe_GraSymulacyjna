@@ -12,6 +12,7 @@
 <div class="childern" *ngIf="model.getModels().length > 0">
     <app-list-item
         *ngFor="let item of model.getModels()"
-        [model]="item">
+        [model]="item"
+        (changeModel)=this.selectModel($event)>
     </app-list-item>
 </div>

@@ -8,6 +8,7 @@ export abstract class AbstractModel {
     protected polygonCount: number = 0;
     protected modifiers: Set<AbstractModifier> = new Set<AbstractModifier>();
     protected timeSpent!: number;
+    protected parent: AbstractModel | null = null;
 
     public getId() {
         return this.id;
@@ -36,6 +37,14 @@ export abstract class AbstractModel {
     }
     public getPolygonCount() {
         return this.polygonCount;
+    }
+
+    public setParent(parent: AbstractModel): void {
+        this.parent = parent
+    }
+
+    public getParent(): AbstractModel | null {
+        return this.parent
     }
 
     public addModifier(modifier: AbstractModifier) {

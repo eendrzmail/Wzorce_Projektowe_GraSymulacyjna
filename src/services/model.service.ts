@@ -27,21 +27,21 @@ export class ModelService {
     this.subject.next(this.subject.getValue())
   }
 
-  selectModel2(model: AbstractModel | null) {
-    this.selected = model
-  }
-
   findModelRecursive(model: AbstractModel, id: number | null): AbstractModel | undefined {
     if (model.getId() == id) return model
     for (let i of model.getModels()) return this.findModelRecursive(i, id)
     return undefined
   }
 
-  // getSelectedModel = () => this.createdModels$.pipe(
-  //   // map(x => x.find(y => y.getId() == this.selectedModelId))
-  //   map(x => x.find(y => this.findModelRecursive(y, this.selectedModelId)))
-  // )
-  getSelectedModel = () => new BehaviorSubject<AbstractModel | null>(this.selected).asObservable()
+  findModel(array: AbstractModel[]) {
+    return array.find(y => y.getId() == this.selectedModelId)
+  }
+
+  getSelectedModel = () => this.createdModels$.pipe(
+    // map(x => x.find(y => y.getId() == this.selectedModelId))
+    map(x => this.findModel(x))
+  )
+  // getSelectedModel = () => new BehaviorSubject<AbstractModel | null>(this.selected).asObservable()
 
   getModelsObservable(): Observable<AbstractModel[]> {
     return this.createdModels$

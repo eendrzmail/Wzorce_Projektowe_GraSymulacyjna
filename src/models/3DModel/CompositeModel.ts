@@ -3,11 +3,12 @@ import { AbstractModel } from "./Model.abstract";
 export class CompositeModel extends AbstractModel {
 
     protected models: AbstractModel[] = [];
+    static instanceCounter = 0;
 
     constructor() {
         super();
         this.composite = true;
-        this.setName("Kompozyt")
+        this.setName(`Kolekcja ${++CompositeModel.instanceCounter}`)
     }
 
     public addModel(AbstractModel: AbstractModel): boolean {
@@ -19,7 +20,7 @@ export class CompositeModel extends AbstractModel {
     }
 
     public getModels(): AbstractModel[] {
-        return this.models
+        return [...this.models]
     }
 
     public modelGeometry(): void { }

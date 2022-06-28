@@ -1,6 +1,6 @@
 import { ModelService } from './../../../../services/model.service';
 import { AbstractModel } from 'src/models/3DModel/Model.abstract';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-list-item',
@@ -12,14 +12,13 @@ export class ListItemComponent implements OnInit {
   constructor(private modelService: ModelService) { }
 
   @Input() model!: AbstractModel;
+  @Output() changeModel = new EventEmitter<AbstractModel | undefined>();
 
   ngOnInit(): void {
   }
 
-  selectModel(model: AbstractModel | null) {
-    console.log(model);
-
-    this.modelService.selectModel(model)
+  selectModel(model: AbstractModel | undefined) {
+    this.changeModel.emit(model)
   }
 
 }

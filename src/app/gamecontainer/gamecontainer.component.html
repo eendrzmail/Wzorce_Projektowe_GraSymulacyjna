@@ -1,7 +1,7 @@
 <div class="game">
     <div class="objects-container">
         <div class="object"
-            (click)="selectModel(null)"
+            (click)="selectModel(undefined)"
             dropzone="move"
         >
             <mat-icon>add_box</mat-icon>
@@ -11,7 +11,9 @@
             *ngFor="let model of models | async as AbstractModel"
         >
             <app-list-item 
-                [model]="model"></app-list-item>
+                [model]="model"
+                (changeModel)=this.selectModel($event)
+            ></app-list-item>
         </div>
     </div>
     <div class="model-container">
