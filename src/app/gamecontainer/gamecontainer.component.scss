@@ -1,0 +1,40 @@
+:host {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    height: 100%;
+}
+.game{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    height: auto;
+
+    .objects-container {
+        box-sizing: border-box;
+        width: 100%;
+        max-height: calc(100vh - 40px);
+        background-color: #717171;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        
+        .object {
+            padding: 7px 5px;
+            background-color: #383838;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            text-overflow: ellipsis;
+
+            &:hover {
+                background-color: #5a5a5a49;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.bar {
+    background-color: gray;
+}

@@ -1,0 +1,22 @@
+:host {
+    min-height: 100vh;
+    position: relative;
+    display: grid;
+    grid-template-areas: 
+        "kb task"
+        "kb main";
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: auto 1fr;
+
+    app-knowledge-base {
+        grid-area: kb;
+    }
+
+    app-task {
+        grid-area: task;
+    }
+
+    .main{
+        grid-area: main;
+    }
+}

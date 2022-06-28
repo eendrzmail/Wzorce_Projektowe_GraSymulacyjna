@@ -1,0 +1,41 @@
+.new-model {
+    height: 100%;
+}
+
+.edit-model {
+    height: 100%;
+    display: grid;
+    grid-template-areas: 
+        "actions model stats"
+        "actions types modificators";
+    grid-template-columns: 300px 1fr 300px;
+
+    >div {
+        padding: 15px;
+    }
+
+    .actions {
+        grid-area: actions;
+        background-color: aquamarine;
+    }
+
+    .image {
+        grid-area: model;
+    }
+
+    .stats {
+        grid-area: stats;
+        background-color: aqua;
+    }
+
+    .decorators{
+        grid-area: types;
+        background-color: bisque;
+    }
+
+    .modificators {
+        grid-area: modificators;
+        background-color: gold;
+    }
+
+}

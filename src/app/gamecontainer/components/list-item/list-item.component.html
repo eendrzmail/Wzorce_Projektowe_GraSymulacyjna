@@ -1,0 +1,17 @@
+<div class="main" (click)="selectModel(model)">
+    <ng-container *ngIf="model.isComposite(); else elseTemplate">
+        <mat-icon>view_cozy</mat-icon>
+    </ng-container>
+    <ng-template #elseTemplate>
+        <mat-icon>token</mat-icon>
+    </ng-template>
+    
+    {{model.getName()}}
+</div>
+
+<div class="childern" *ngIf="model.getModels().length > 0">
+    <app-list-item
+        *ngFor="let item of model.getModels()"
+        [model]="item">
+    </app-list-item>
+</div>

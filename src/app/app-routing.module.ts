@@ -1,7 +1,12 @@
+import { GamecontainerComponent } from './gamecontainer/gamecontainer.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: GamecontainerComponent },
+  { path: '', component: LandingPageComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
