@@ -1,3 +1,4 @@
+import { ModelTypes } from './../models/Enums/ModelDecorators';
 import { AbstractModel } from 'src/models/3DModel/Model.abstract';
 import { CompositeModel } from './../models/3DModel/CompositeModel';
 import { Injectable } from '@angular/core';
@@ -28,12 +29,6 @@ export class ModelService {
     this.subject.next(this.subject.getValue())
   }
 
-  findModelRecursive(model: AbstractModel, id: number | null): AbstractModel | undefined {
-    if (model.getId() == id) return model
-    for (let i of model.getModels()) return this.findModelRecursive(i, id)
-    return undefined
-  }
-
   findModel(array: AbstractModel[]) {
     return array.find(y => y.getId() == this.selectedModelId)
   }
@@ -46,9 +41,9 @@ export class ModelService {
     return this.createdModels$
   }
 
-  getCompositesObservable():Observable<AbstractModel[]> {
+  getCompositesObservable(): Observable<AbstractModel[]> {
     return this.createdModels$.pipe(
-      map(a => a.filter(x => x.isComposite()))
+      map(a => this.flatten(a).filter((x: AbstractModel) => x.isComposite()))
     )
   }
 
@@ -73,15 +68,27 @@ export class ModelService {
     }
   }
 
-  decorateModel(model: AbstractModel, decorator: string) {
+  decorateModel(model: AbstractModel, decorator: ModelTypes) {
 
     let newModel = new GameModel(model)
 
     newModel.setName(model.getName())
-    
-    this.subject.next([newModel, ...this.subject.value.filter( x => x != model)])
+
+    this.subject.next([newModel, ...this.subject.value.filter(x => x != model)])
     model.getParent() ? model.getParent()?.removeModel(model) : null
 
+  }
+
+  private flatten(xs: AbstractModel[]) {
+    return xs.reduce((acc: any, x: AbstractModel) => {
+      acc = acc.concat(x);
+      let ar = (x.getModels());
+      if (ar) {
+        x = Object.assign({}, x)
+        acc = acc.concat(this.flatten(ar));
+      }
+      return acc;
+    }, []);
   }
 
 }

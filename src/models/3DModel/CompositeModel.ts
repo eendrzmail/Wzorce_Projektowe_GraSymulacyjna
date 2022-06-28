@@ -22,7 +22,7 @@ export class CompositeModel extends AbstractModel {
     }
 
     public getModels(): AbstractModel[] {
-        return [...this.models]
+        return this.models
     }
 
     public modelGeometry(): void { }

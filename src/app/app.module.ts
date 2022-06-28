@@ -16,7 +16,15 @@ import { NewmodelComponent } from './modelcontainer/components/newmodel/newmodel
 
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+
 import { FormsModule } from '@angular/forms';
+import { EnumPipe } from './pipes/enum.pipe';
+import { BoolPipe } from './pipes/bool.pipe';
+
+import { GameModelActionsComponent } from './modelcontainer/components/actions/game-model-actions/game-model-actions.component';
+import { GameModelStatsComponent } from './modelcontainer/components/stats/game-model-stats/game-model-stats.component';
+import { ModelModifiersComponent } from './modelcontainer/components/model-modifiers/model-modifiers.component';
 
 
 
@@ -30,7 +38,12 @@ import { FormsModule } from '@angular/forms';
     GamecontainerComponent,
     ModelcontainerComponent,
     ListItemComponent,
-    NewmodelComponent
+    NewmodelComponent,
+    EnumPipe,
+    GameModelStatsComponent,
+    BoolPipe,
+    GameModelActionsComponent,
+    ModelModifiersComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +52,8 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     MatInputModule,
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

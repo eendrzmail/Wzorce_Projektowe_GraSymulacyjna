@@ -1,3 +1,5 @@
+import { GameModel } from './../../models/3DModel/final/GameModel';
+import { ModelTypes } from './../../models/Enums/ModelDecorators';
 import { ModelService } from './../../services/model.service';
 import { AbstractModel } from 'src/models/3DModel/Model.abstract';
 import { Observable } from 'rxjs';
@@ -13,18 +15,17 @@ import { MatSelect } from '@angular/material/select';
 export class ModelcontainerComponent implements OnInit {
 
   constructor(
-    private modelsService: ModelService
+    private modelsService: ModelService,
   ) { }
 
   @Input() model!: Model | undefined;
   @ViewChild(MatSelect) moveselect: any;
 
+  types = ModelTypes;
+
   ngOnInit(): void {
   }
 
-  //to zmaineić flattenmodel
-  // allModels$ = this.modelsService.createdModels$;
-  
   composites$ = this.modelsService.getCompositesObservable()
 
   moveModel(model: AbstractModel, dest: AbstractModel) {
@@ -32,8 +33,10 @@ export class ModelcontainerComponent implements OnInit {
       this.modelsService.moveModel(model, dest)
   }
 
-  decorateModel(model: AbstractModel, decorator: string){
+  decorateModel(model: AbstractModel, decorator: ModelTypes) {
     this.modelsService.decorateModel(model, decorator)
   }
+
+  asGameModel = (model: AbstractModel): GameModel => model as GameModel
 
 }

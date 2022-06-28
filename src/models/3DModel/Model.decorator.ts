@@ -6,7 +6,13 @@ export class ModelDecorator extends AbstractModel {
 
     constructor(model: AbstractModel) {
         super();
+        // Object.assign(this, model)
         this.model = model;
+        this.modifiers = model.getModifiers()
+    }
+
+    public isComposite(): boolean {
+        return this.model.isComposite();
     }
 
     public addModel(AbstractModel: AbstractModel): boolean {
@@ -36,8 +42,8 @@ export class ModelDecorator extends AbstractModel {
     public removeModifier(modifier: AbstractModifier) {
         this.model.removeModifier(modifier)
     }
-    public modelGeometry(): void { }
 
     public getModels = () => this.model.getModels();
 
+    public modelGeometry(): void { }
 }

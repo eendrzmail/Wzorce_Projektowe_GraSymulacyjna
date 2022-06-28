@@ -4,7 +4,7 @@
 
 <div class="edit-model" *ngIf="model">
     <div class="actions">
-        <h2>{{model.constructor.name}}</h2>
+        <h2>Typ: {{model.constructor.name}}</h2>
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Nazwa</mat-label>
@@ -20,25 +20,67 @@
             </mat-select>
         </mat-form-field>
 
+        <div [ngSwitch]="model.constructor.name">
+            <app-game-model-actions 
+                *ngSwitchCase="'GameModel'"
+                [model]="asGameModel(model)"
+            ></app-game-model-actions>
+        </div>
+
     </div>
     <div class="image">
         <div *ngIf="model.isComposite(); else templateName">
-            Composite
+            <img src="assets/collection.png" alt="3D Model">
         </div>
         <ng-template #templateName>
-            <img src="assets/cube.png" alt="3D Model">
+            <div>
+                <img src="assets/cube.png" alt="3D Model">
+            </div>
         </ng-template>
 
     </div>
+    
     <div class="stats">
+        <table>
+            <tr>
+                <td>ilość vertexów: </td>
+                <td>{{model.getPolygonCount()}}</td>
+            </tr>
+            <tr>
+                <td>spędzony czas: </td>
+                <td>{{model.getTimeSpent()}}</td>
+            </tr>
+        </table>
 
-    </div>
-    <div class="decorators">
-        <div class="decorator" (click)="decorateModel(model, 'GameModel')">
-            GameModel
+        <div [ngSwitch]="model.constructor.name">
+            <app-game-model-stats 
+                *ngSwitchCase="'GameModel'"
+                [model]="asGameModel(model)"
+            ></app-game-model-stats>
+
+            <p *ngSwitchCase="false">
+            
+            </p>
+            <p *ngSwitchDefault>
+            
+            </p>
         </div>
     </div>
-    <div class="modificators">
 
+    <div class="decorators">
+        <h2>Opakuj model jako</h2>
+        <div class="decoratorbox">   
+            <div 
+                class="decorator" 
+                *ngFor="let type of types | enum" 
+                (click)="decorateModel(model, type)"
+            >
+                {{type.name}}
+            </div>
+        </div>
+    </div>
+
+    <div class="modificators">
+        <app-model-modifiers [model]="model"></app-model-modifiers>
     </div>
 </div>

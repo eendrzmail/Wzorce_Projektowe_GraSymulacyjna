@@ -7,7 +7,7 @@ export abstract class AbstractModel {
     protected composite!: boolean;
     protected polygonCount: number = 0;
     protected modifiers: Set<AbstractModifier> = new Set<AbstractModifier>();
-    protected timeSpent!: number;
+    protected timeSpent: number = 0;
     protected parent: AbstractModel | null = null;
 
     public getId() {
@@ -50,6 +50,8 @@ export abstract class AbstractModel {
     public addModifier(modifier: AbstractModifier) {
         this.modifiers.add(modifier);
     }
+
+    public getModifiers = (): Set<AbstractModifier> => this.modifiers
 
     public applyAllModifiers() {
         for (let m of this.modifiers) {

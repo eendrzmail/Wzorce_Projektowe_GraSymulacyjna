@@ -3,12 +3,16 @@ import { ModelDecorator } from '../Model.decorator';
 
 export class GameModel extends ModelDecorator {
     private textureQuality!: TextureQuality;
-    private UVunwrapped!: boolean;
-    private rigged!: boolean;
+    private UVunwrapped: boolean = false;
+    private rigged: boolean = false;
+
+    public isRigged = () => this.rigged
 
     public rig() {
         this.rigged = true;
     }
+
+    public getTextureQuality = () => this.textureQuality
 
     public texture(quality: TextureQuality) {
         if (!this.UVunwrapped)
@@ -20,4 +24,6 @@ export class GameModel extends ModelDecorator {
     public unwrap() {
         this.UVunwrapped = true;
     }
+
+    public isUVunwrapped = () => this.UVunwrapped;
 }

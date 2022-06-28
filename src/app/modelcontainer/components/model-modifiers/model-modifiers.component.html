@@ -1,0 +1,16 @@
+<div class="add-modifier">
+    Dodaj modyfikator:
+    <br/>
+    <button mat-raised-button 
+        *ngFor="let modifier of enum | enum"
+        (click)="addModifier(modifier.index)" 
+    >{{modifier.name}}</button>
+</div>
+<div class="model-modifiers">
+    Aktywne Modyfikatory:
+    <div
+        *ngFor="let modifier of model.getModifiers()"
+    >
+        {{modifier.constructor.name}}
+    </div>
+</div>
