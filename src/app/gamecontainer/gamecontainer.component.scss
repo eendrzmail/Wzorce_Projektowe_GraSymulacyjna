@@ -20,16 +20,24 @@
         
         .object {
             padding: 7px 5px;
+            width:100%;
+            box-sizing: border-box;
             background-color: #383838;
             color: white;
             display: flex;
             align-items: center;
             gap: 5px;
             text-overflow: ellipsis;
+            position: relative;
 
             &:hover {
-                background-color: #5a5a5a49;
+                background: linear-gradient(to right, #864343, transparent);
                 cursor: pointer;
+            }
+
+            app-list-item {
+                width:100%;
+                padding: 3px;
             }
         }
     }

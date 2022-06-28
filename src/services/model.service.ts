@@ -38,10 +38,8 @@ export class ModelService {
   }
 
   getSelectedModel = () => this.createdModels$.pipe(
-    // map(x => x.find(y => y.getId() == this.selectedModelId))
     map(x => this.findModel(x))
   )
-  // getSelectedModel = () => new BehaviorSubject<AbstractModel | null>(this.selected).asObservable()
 
   getModelsObservable(): Observable<AbstractModel[]> {
     return this.createdModels$
@@ -55,8 +53,17 @@ export class ModelService {
   moveModel(model: AbstractModel, dest: AbstractModel) {
     if (model === dest)
       return
-    this.subject.next(this.subject.value.filter(x => x != model))
-    dest.addModel(model) ? null : this.subject.next([model, ...this.subject.getValue()])
+
+      const oldParent = model.getParent()
+    if (!oldParent) {
+      this.subject.next(this.subject.value.filter(x => x != model))
+      dest.addModel(model) ? null : this.subject.next([model, ...this.subject.getValue()])
+    }
+    else {
+      if (dest.addModel(model)) {
+        oldParent.removeModel(model);
+      }
+    }
   }
 
 }

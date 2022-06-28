@@ -12,7 +12,9 @@ export class CompositeModel extends AbstractModel {
     }
 
     public addModel(AbstractModel: AbstractModel): boolean {
-        return !!this.models.push(AbstractModel)
+        this.models.push(AbstractModel)
+        AbstractModel.setParent(this)
+        return true
     }
 
     public removeModel(AbstractModel: AbstractModel): void {

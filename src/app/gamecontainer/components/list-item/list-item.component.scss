@@ -7,6 +7,7 @@
     display: flex;
     align-items: center;
     gap: 5px;
+    padding: 3px;
 }
 .objects-container {
     box-sizing: border-box;
@@ -26,9 +27,10 @@
     display: flex;
     align-items: center;
     text-overflow: ellipsis;
+    width: 100%;
 
     &:hover {
-        background-color: #5a5a5a49;
+        background: linear-gradient(to right, #864343, transparent);
         cursor: pointer;
     }
 }
@@ -38,11 +40,13 @@
     display: flex;
     gap: 3px;
     flex-direction: column;
+    width: 100%;
+
 }
 app-list-item{
     flex: 1;
     &:hover {
-        background-color: #747474;
+        background: linear-gradient(to right, #864343, transparent);
 
     }
 }
