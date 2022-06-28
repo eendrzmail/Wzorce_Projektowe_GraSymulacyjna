@@ -61,7 +61,7 @@ export class ModelService {
     if (model === dest) return
     if (model.getParent() == dest) return
 
-      const oldParent = model.getParent()
+    const oldParent = model.getParent()
     if (!oldParent) {
       this.subject.next(this.subject.value.filter(x => x != model))
       dest.addModel(model) ? null : this.subject.next([model, ...this.subject.getValue()])
@@ -78,7 +78,10 @@ export class ModelService {
     let newModel = new GameModel(model)
 
     newModel.setName(model.getName())
-    this.subject.next([...this.subject.value.filter( x => x != model), newModel]) 
+    
+    this.subject.next([newModel, ...this.subject.value.filter( x => x != model)])
+    model.getParent() ? model.getParent()?.removeModel(model) : null
+
   }
 
 }
