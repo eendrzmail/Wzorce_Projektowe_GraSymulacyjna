@@ -3,8 +3,10 @@ import { AbstractModifier } from "./Modifier.abstract";
 
 export class MirrorModifier extends AbstractModifier {
 
-    public apply(parent: AbstractModel): void {
-        parent.setPolygonCount(parent.getPolygonCount() * 2)
+    public apply(): void {
+        this.parent.setPolygonCount(this.parent.getPolygonCount() * 2)
+        // parent.setPolygonCount(parent.getPolygonCount() * 2)
+        this.parent.removeModifier(this)
     }
 
 }

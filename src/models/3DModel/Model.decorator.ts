@@ -25,13 +25,16 @@ export class ModelDecorator extends AbstractModel {
         this.model.setTimeSpent(minutes);
     }
     public getTimeSpent() {
-        return this.model.getTimeSpent();
+        return this.timeSpent + this.model.getTimeSpent();
+    }
+    public addTimeSpent(min: number) {
+        this.model.addTimeSpent(min);
     }
     public setPolygonCount(number: number) {
         this.model.setPolygonCount(number);
     }
     public getPolygonCount() {
-        return this.model.getPolygonCount();
+        return this.polygonCount + this.model.getPolygonCount();
     }
     public addModifier(modifier: AbstractModifier) {
         this.model.addModifier(modifier);

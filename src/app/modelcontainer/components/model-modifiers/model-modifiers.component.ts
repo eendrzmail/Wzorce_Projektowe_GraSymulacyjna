@@ -23,14 +23,11 @@ export class ModelModifiersComponent implements OnInit {
   addModifier(modifier: ModelModifiers) {
     switch (modifier) {
       case ModelModifiers.Mirror: {
-        let modifier = new MirrorModifier()
+        let modifier = new MirrorModifier(this.model)
         this.model.addModifier(modifier)
         break;
       }
     }
-
-    console.log(this.model);
-
   }
 
 }

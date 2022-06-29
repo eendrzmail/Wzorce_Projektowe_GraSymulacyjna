@@ -1,6 +1,11 @@
 import { AbstractModel } from "../3DModel/Model.abstract";
 
 export abstract class AbstractModifier {
+    parent!: AbstractModel;
 
-    public abstract apply(parent: AbstractModel): void;
+    constructor(parent: AbstractModel) {
+        this.parent = parent;
+    }
+
+    public abstract apply(): void;
 }

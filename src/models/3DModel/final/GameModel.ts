@@ -10,6 +10,7 @@ export class GameModel extends ModelDecorator {
 
     public rig() {
         this.rigged = true;
+        this.addTimeSpent(60)
     }
 
     public getTextureQuality = () => this.textureQuality
@@ -18,11 +19,13 @@ export class GameModel extends ModelDecorator {
         if (!this.UVunwrapped)
             return new Error("Model is not UV unwrapped")
         this.textureQuality = quality;
+        this.addTimeSpent(60);
         return true
     }
 
     public unwrap() {
         this.UVunwrapped = true;
+        this.addTimeSpent(60);
     }
 
     public isUVunwrapped = () => this.UVunwrapped;

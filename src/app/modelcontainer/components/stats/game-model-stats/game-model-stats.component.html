@@ -9,6 +9,6 @@
     </tr>
     <tr>
         <td>Jakość tekstur: </td>
-        <td>{{model.getTextureQuality()}}</td>
+        <td>{{$any(model.getTextureQuality())?.name || "brak"}}</td>
     </tr>
 </table>

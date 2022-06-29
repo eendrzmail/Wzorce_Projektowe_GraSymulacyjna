@@ -20,6 +20,8 @@
             </mat-select>
         </mat-form-field>
 
+        <button mat-raised-button color="primary" (click)="model.addPolygonCount(model.getPolygonCount() * 1.25)">Modeluj</button>
+
         <div [ngSwitch]="model.constructor.name">
             <app-game-model-actions 
                 *ngSwitchCase="'GameModel'"
@@ -48,7 +50,7 @@
             </tr>
             <tr>
                 <td>spędzony czas: </td>
-                <td>{{model.getTimeSpent()}}</td>
+                <td>{{timeConvert(model.getTimeSpent())}}</td>
             </tr>
         </table>
 

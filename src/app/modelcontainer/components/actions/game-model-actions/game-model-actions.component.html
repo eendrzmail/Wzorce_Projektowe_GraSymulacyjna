@@ -6,5 +6,19 @@
     (click)="model.unwrap()" 
     [disabled]="model.isUVunwrapped()">Stwórz UV mapę</button>
     
-<button mat-raised-button 
-    (click)="model.rig()">Stwórz szkielet</button>
+<div class="select">
+    <mat-form-field appearance="fill">
+        <mat-label>Jakość tekstur</mat-label>
+        <mat-select [(value)]="selectedTexture">
+          <mat-option 
+            *ngFor="let q of textureQualityEnum | enum" 
+            [value]="q">
+            {{q.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    <button mat-raised-button 
+        [disabled]="!model.isUVunwrapped()"
+        (click)="texture()">Oteksturuj</button>
+</div>
