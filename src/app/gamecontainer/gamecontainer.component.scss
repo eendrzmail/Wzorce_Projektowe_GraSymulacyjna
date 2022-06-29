@@ -19,7 +19,7 @@
         gap: 2px;
         
         .object {
-            padding: 7px 5px;
+            // padding: 7px 5px;
             width:100%;
             box-sizing: border-box;
             background-color: #383838;
@@ -39,10 +39,14 @@
                 width:100%;
                 padding: 3px;
             }
+            &:first-child {
+                padding: 7px 5px;
+            }
         }
     }
 }
 
 .bar {
-    background-color: gray;
+    background-color: #717171;
+    height: 20px;
 }

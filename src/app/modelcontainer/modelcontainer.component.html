@@ -43,30 +43,34 @@
     </div>
     
     <div class="stats">
-        <table>
-            <tr>
-                <td>ilość vertexów: </td>
-                <td>{{model.getPolygonCount()}}</td>
-            </tr>
-            <tr>
-                <td>spędzony czas: </td>
-                <td>{{timeConvert(model.getTimeSpent())}}</td>
-            </tr>
-        </table>
-
-        <div [ngSwitch]="model.constructor.name">
-            <app-game-model-stats 
-                *ngSwitchCase="'GameModel'"
-                [model]="asGameModel(model)"
-            ></app-game-model-stats>
-
-            <p *ngSwitchCase="false">
-            
-            </p>
-            <p *ngSwitchDefault>
-            
-            </p>
+        <div class="stats-table">
+            <table>
+                <tr>
+                    <td>ilość vertexów: </td>
+                    <td>{{model.getPolygonCount()}}</td>
+                </tr>
+                <tr>
+                    <td>spędzony czas: </td>
+                    <td>{{timeConvert(model.getTimeSpent())}}</td>
+                </tr>
+            </table>
+    
+            <div [ngSwitch]="model.constructor.name">
+                <app-game-model-stats 
+                    *ngSwitchCase="'GameModel'"
+                    [model]="asGameModel(model)"
+                ></app-game-model-stats>
+    
+                <p *ngSwitchCase="false">
+                
+                </p>
+                <p *ngSwitchDefault>
+                
+                </p>
+            </div>
         </div>
+        <hr/>
+        <app-model-modifiers [model]="model"></app-model-modifiers>
     </div>
 
     <div class="decorators">
@@ -80,9 +84,5 @@
                 {{type.name}}
             </div>
         </div>
-    </div>
-
-    <div class="modificators">
-        <app-model-modifiers [model]="model"></app-model-modifiers>
     </div>
 </div>

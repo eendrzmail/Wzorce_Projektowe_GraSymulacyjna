@@ -7,12 +7,14 @@
     display: grid;
     grid-template-areas: 
         "actions model stats"
-        "actions types modificators";
+        "actions types stats";
     grid-template-columns: 250px 1fr 300px;
     grid-template-rows: auto 1fr;
+    max-height: calc(100vh - 40px);
 
     >div {
         padding: 15px;
+        overflow-y: auto;
     }
 
     .actions {
@@ -45,6 +47,15 @@
     .stats {
         grid-area: stats;
         background-color: rgb(209, 209, 209);
+
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #717171;
+        }
+        .stats-table {
+            min-height:45vh;
+        }
     }
 
     .decorators{
