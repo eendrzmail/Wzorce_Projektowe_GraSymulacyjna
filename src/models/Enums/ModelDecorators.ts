@@ -1,5 +1,6 @@
 export enum ModelTypes {
     GameModel,
     ArchVizModel,
-    Render
+    Render,
+    '3DPrint'
 }

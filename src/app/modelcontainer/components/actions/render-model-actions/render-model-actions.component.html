@@ -1,0 +1,15 @@
+<button mat-raised-button 
+    (click)="model.makeLighting()" 
+    [disabled]="model.hasLighting()">Ustaw Światło</button>
+    
+<button mat-raised-button 
+    [disabled]="model.hasMaterials()"
+    (click)="model.setMaterials()">Ustaw Materiały</button>
+    
+<button mat-raised-button 
+    [disabled]="model.isCameraSet()"
+    (click)="model.setCamera()">Ustaw Kamerę</button>
+
+<button mat-raised-button 
+    [disabled]="model.isRendered() || !model.isCameraSet()"
+    (click)="model.render()">Renderuj</button>

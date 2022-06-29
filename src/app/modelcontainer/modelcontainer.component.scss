@@ -45,8 +45,14 @@
     }
 
     .stats {
+        box-sizing: border-box;
+        overflow-x: hidden;
         grid-area: stats;
         background-color: rgb(209, 209, 209);
+
+        table {
+            width:100%;
+        }
 
         hr {
             border: none;
@@ -54,7 +60,7 @@
             background-color: #717171;
         }
         .stats-table {
-            min-height:45vh;
+            min-height:250px;
         }
     }
 

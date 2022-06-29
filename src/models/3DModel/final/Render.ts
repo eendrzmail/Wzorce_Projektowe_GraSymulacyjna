@@ -1,25 +1,34 @@
+import { AbstractModel } from 'src/models/3DModel/Model.abstract';
 import { ModelDecorator } from '../Model.decorator';
 
 export class Render extends ModelDecorator {
     private lighting: boolean = false;
     private materials: boolean = false;
-    private rendered: boolean = true;
+    private rendered: boolean = false;
+    private camera: boolean = false;
 
     public hasLighting = () => this.lighting;
     public makeLighting = () => {
-        this.lighting ? this.lighting = true : null
+        this.lighting = true
+        this.addTimeSpent((this.getPolygonCount() / 1000) * 60);
     };
 
-    public hasMetarials = () => this.materials;
+    public hasMaterials = () => this.materials;
     public setMaterials = () => {
         this.materials = true;
-        this.addTimeSpent(Math.max(this.getPolygonCount()/500, 10));
+        this.addTimeSpent(Math.max((this.getPolygonCount() / 1000) * 60, 10));
     }
 
     public isRendered = () => this.rendered;
     public render() {
         this.rendered = true;
-        this.addTimeSpent(this.getPolygonCount()/500);
+        this.addTimeSpent(this.getPolygonCount() / 60);
     }
-    
+
+    public isCameraSet = () => this.camera;
+    public setCamera() {
+        this.camera = true;
+        this.addTimeSpent(60);
+    }
+
 }

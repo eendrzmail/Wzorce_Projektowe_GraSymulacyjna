@@ -1,0 +1,16 @@
+.add-modifier {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    button {
+        width: 100%;
+    }
+}
+
+.model-modifiers {
+    margin-top: 15px;
+    table {
+        margin-top: 5px;
+        width: 100%;
+    }
+}   

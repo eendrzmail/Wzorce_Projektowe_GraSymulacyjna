@@ -1,4 +1,5 @@
 export enum ModelModifiers {
-    Mirror
-
+    Mirror,
+    Remesh,
+    "Subdivision surface"
 }

@@ -1,1 +1,16 @@
-Zara nakopie ci do dupy
+<div class="shortDesc">
+    <p>
+        Obecne Zadanie:
+    </p>
+    <p>
+        {{currentTask.description}}
+    </p>
+    
+    <div class="button">
+        <button mat-raised-button color="warn" (click)="completeTask()">Wykonaj Zadanie</button>
+    </div>
+
+</div>
+<div class="longDesc">
+    {{currentTask.longDescription}}
+</div>

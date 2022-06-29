@@ -27,6 +27,18 @@
                 *ngSwitchCase="'GameModel'"
                 [model]="asGameModel(model)"
             ></app-game-model-actions>
+            <app-render-model-actions 
+                *ngSwitchCase="'Render'"
+                [model]="asRenderModel(model)"
+            ></app-render-model-actions>
+            <app-archviz-model-actions 
+                *ngSwitchCase="'ArchVizModel'"
+                [model]="asArchVizModel(model)"
+            ></app-archviz-model-actions>
+            <app-print-model-actions 
+                    *ngSwitchCase="'PrintModel'"
+                    [model]="asPrintModel(model)"
+            ></app-print-model-actions>
         </div>
 
     </div>
@@ -60,13 +72,18 @@
                     *ngSwitchCase="'GameModel'"
                     [model]="asGameModel(model)"
                 ></app-game-model-stats>
-    
-                <p *ngSwitchCase="false">
-                
-                </p>
-                <p *ngSwitchDefault>
-                
-                </p>
+                <app-render-model-stats 
+                    *ngSwitchCase="'Render'"
+                    [model]="asRenderModel(model)"
+                ></app-render-model-stats>
+                <app-archviz-model-stats 
+                    *ngSwitchCase="'ArchVizModel'"
+                    [model]="asArchVizModel(model)"
+                ></app-archviz-model-stats>
+                <app-print-model-stats 
+                    *ngSwitchCase="'PrintModel'"
+                    [model]="asPrintModel(model)"
+                ></app-print-model-stats>
             </div>
         </div>
         <hr/>

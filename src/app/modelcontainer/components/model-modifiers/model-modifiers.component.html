@@ -8,9 +8,17 @@
 </div>
 <div class="model-modifiers">
     Aktywne Modyfikatory:
-    <div
-        *ngFor="let modifier of model.getModifiers()"
-    >
-        {{modifier.constructor.name}} <button mat-raised-button color="primary" (click)="modifier.apply()">Zatwierdź</button>
-    </div>
+    <table>
+        <tr
+            *ngFor="let modifier of model.getModifiers()"
+        >
+            <td>
+                {{modifier.constructor.name}}
+            </td>
+            <td>
+                <button mat-raised-button color="primary" (click)="modifier.apply()">Zatwierdź</button>
+            </td>
+        </tr>
+
+    </table>
 </div>

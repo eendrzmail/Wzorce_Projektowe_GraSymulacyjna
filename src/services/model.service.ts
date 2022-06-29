@@ -1,3 +1,5 @@
+import { ArchVizModel } from './../models/3DModel/final/ArchVizModel';
+import { Render } from './../models/3DModel/final/Render';
 import { ModelTypes } from './../models/Enums/ModelDecorators';
 import { AbstractModel } from 'src/models/3DModel/Model.abstract';
 import { CompositeModel } from './../models/3DModel/CompositeModel';
@@ -6,6 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Model } from 'src/models/3DModel/SimpleModel';
 import { GameModel } from 'src/models/3DModel/final/GameModel';
 import { filter, find, first, map, mergeAll, take, single } from 'rxjs/operators';
+import { PrintModel } from 'src/models/3DModel/final/3DPrintModel';
 
 
 @Injectable({
@@ -49,6 +52,8 @@ export class ModelService {
 
   addNewModel(type: "model" | "collection") {
     let newModel = type == "model" ? new Model() : new CompositeModel();
+    newModel.setPolygonCount(8);
+    newModel.setTimeSpent(2);
     this.subject.next([newModel, ...this.subject.getValue()])
   }
 
@@ -71,17 +76,22 @@ export class ModelService {
   decorateModel(model: AbstractModel, decorator: any) {
     let newModel!: AbstractModel;
 
-    switch(decorator.index) {
+    switch (decorator.index) {
       case (ModelTypes.GameModel):
         newModel = new GameModel(model)
         break;
       case (ModelTypes.Render):
-        newModel = new GameModel(model)
+        newModel = new Render(model)
         break;
-      default: 
-        newModel = model
+      case (ModelTypes.ArchVizModel):
+        newModel = new ArchVizModel(model)
+        break;
+      case (ModelTypes['3DPrint']):
+        newModel = new PrintModel(model)
+        break;
+      default:
+        return
     }
-
 
     newModel.setName(model.getName())
 

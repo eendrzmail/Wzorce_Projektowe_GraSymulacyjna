@@ -1,0 +1,18 @@
+<table>
+    <tr>
+        <td>Ustawione światło: </td>
+        <td>{{model.hasLighting() | bool}}</td>
+    </tr>
+    <tr>
+        <td>Materiały: </td>
+        <td>{{model.hasMaterials() | bool}}</td>
+    </tr>
+    <tr>
+        <td>Ustawiona Kamera:</td>
+        <td>{{model.isCameraSet() | bool}}</td>
+    </tr>
+    <tr>
+        <td>Gotowy Render: </td>
+        <td>{{model.isRendered() | bool}}</td>
+    </tr>
+</table>

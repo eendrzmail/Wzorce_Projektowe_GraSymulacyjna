@@ -5,9 +5,9 @@ export abstract class AbstractModel {
     protected id = Date.now() + +((Math.random() * 10).toFixed());
     public name = 'Nowy model';
     protected composite!: boolean;
-    protected polygonCount: number = 8;
+    protected polygonCount: number = 0;
     protected modifiers: Set<AbstractModifier> = new Set<AbstractModifier>();
-    protected timeSpent: number = 2;
+    protected timeSpent: number = 0;
     protected parent: AbstractModel | null = null;
 
     public getId() {
@@ -44,7 +44,7 @@ export abstract class AbstractModel {
     public addPolygonCount(number: number) {
         number = Math.floor(number)
         this.polygonCount += number;
-        this.timeSpent+= number * .25
+        this.timeSpent += Math.floor(number * .25)
     }
 
     public setParent(parent: AbstractModel): void {

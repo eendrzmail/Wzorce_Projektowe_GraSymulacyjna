@@ -1,7 +1,11 @@
 <button mat-raised-button 
-    (click)="model.rig()" 
-    [disabled]="model.isRigged()">Stwórz szkielet</button>
+    (click)="model.makeLighting()" 
+    [disabled]="model.hasLighting()">Ustaw Światło</button>
     
+<button mat-raised-button 
+    [disabled]="model.hasMaterials()"
+    (click)="model.setMaterials()">Ustaw Materiały</button>
+
 <button mat-raised-button 
     (click)="model.unwrap()" 
     [disabled]="model.isUVunwrapped()">Stwórz UV mapę</button>
@@ -22,3 +26,7 @@
         [disabled]="!model.isUVunwrapped()"
         (click)="texture()">Teksturuj</button>
 </div>
+
+<button mat-raised-button 
+    [disabled]="model.isRendered()"
+    (click)="model.render()">Renderuj</button>

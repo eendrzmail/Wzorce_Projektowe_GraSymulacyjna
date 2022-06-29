@@ -11,6 +11,24 @@ export class CompositeModel extends AbstractModel {
         this.setName(`Kolekcja ${++CompositeModel.instanceCounter}`)
     }
 
+    public getTimeSpent(): number {
+        let childTime = this.models.length > 0
+            ? this.models
+                .map(x => x.getTimeSpent())
+                .reduce((acc: number, curr: number) => acc += curr)
+            : 0
+        return this.timeSpent + childTime
+    }
+
+    public getPolygonCount(): number {
+        let childPolygonCount = this.models.length > 0
+            ? this.models
+                .map(x => x.getPolygonCount())
+                .reduce((acc: number, curr: number) => acc += curr)
+            : 0
+        return this.timeSpent + childPolygonCount
+    }
+
     public addModel(AbstractModel: AbstractModel): boolean {
         this.models.push(AbstractModel)
         AbstractModel.setParent(this)

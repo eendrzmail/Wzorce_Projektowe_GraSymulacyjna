@@ -1,3 +1,46 @@
 :host {
     background-color: gray;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 90;
+    display: grid;
+    grid-template-rows: 40px auto;
+    transition-duration: .3s;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.494);
+    &:hover {
+        height: 100px;
+    }
+}
+
+.shortDesc{
+    display:flex;
+    align-items: center;
+    height: 40px;
+    color: white;
+    text-shadow: 0px 0px 3px black;
+
+    p {
+        margin: 0;
+        height: 100%;
+        font-size: 1.4rem;
+        line-height: 40px;
+    }
+
+    :first-child{
+        width: 220px;
+        text-align: center;
+    }
+
+    :last-child {
+        margin-left: auto;
+        button {
+            margin: 0 40px;
+        }
+    }
+}
+
+.longDess{
+    height: 0;
+    overflow-y: hidden;
 }

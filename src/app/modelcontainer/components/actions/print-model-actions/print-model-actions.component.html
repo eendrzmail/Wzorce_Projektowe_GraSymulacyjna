@@ -1,0 +1,23 @@
+<button mat-raised-button 
+    (click)="model.process()" 
+    [disabled]="model.isProcessed() || !model.hasSupports()">Przygotuj do druku</button>
+    
+<button mat-raised-button 
+    [disabled]="model.hasSupports()"
+    (click)="model.makeSupports()">Dodaj podpory</button>
+    
+<div class="select">
+    <mat-form-field appearance="fill">
+        <mat-label>Materiał</mat-label>
+        <mat-select [(value)]="selectedMaterial">
+          <mat-option 
+            *ngFor="let q of materialEnum | enum" 
+            [value]="q">
+            {{q.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    <button mat-raised-button 
+        (click)="setMaterial()">Ustaw</button>
+</div>

@@ -25,6 +25,12 @@ import { BoolPipe } from './pipes/bool.pipe';
 import { GameModelActionsComponent } from './modelcontainer/components/actions/game-model-actions/game-model-actions.component';
 import { GameModelStatsComponent } from './modelcontainer/components/stats/game-model-stats/game-model-stats.component';
 import { ModelModifiersComponent } from './modelcontainer/components/model-modifiers/model-modifiers.component';
+import { RenderModelActionsComponent } from './modelcontainer/components/actions/render-model-actions/render-model-actions.component';
+import { ArchvizModelActionsComponent } from './modelcontainer/components/actions/archviz-model-actions/archviz-model-actions.component';
+import { RenderModelStatsComponent } from './modelcontainer/components/stats/render-model-stats/render-model-stats.component';
+import { ArchvizModelStatsComponent } from './modelcontainer/components/stats/archviz-model-stats/archviz-model-stats.component';
+import { PrintModelStatsComponent } from './modelcontainer/components/stats/print-model-stats/print-model-stats.component';
+import { PrintModelActionsComponent } from './modelcontainer/components/actions/print-model-actions/print-model-actions.component';
 
 
 
@@ -43,7 +49,13 @@ import { ModelModifiersComponent } from './modelcontainer/components/model-modif
     GameModelStatsComponent,
     BoolPipe,
     GameModelActionsComponent,
-    ModelModifiersComponent
+    ModelModifiersComponent,
+    RenderModelActionsComponent,
+    ArchvizModelActionsComponent,
+    RenderModelStatsComponent,
+    ArchvizModelStatsComponent,
+    PrintModelStatsComponent,
+    PrintModelActionsComponent,
   ],
   imports: [
     BrowserModule,

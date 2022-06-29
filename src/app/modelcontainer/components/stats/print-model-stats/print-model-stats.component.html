@@ -1,0 +1,14 @@
+<table>
+    <tr>
+        <td>Gotowy do druku: </td>
+        <td>{{model.isProcessed() | bool}}</td>
+    </tr>
+    <tr>
+        <td>Materiał druku: </td>
+        <td>{{$any(model.getMaterial())?.name || "brak"}}</td>
+    </tr>
+    <tr>
+        <td>Podpory: </td>
+        <td>{{model.hasSupports() | bool}}</td>
+    </tr>
+</table>
