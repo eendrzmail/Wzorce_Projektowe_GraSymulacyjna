@@ -68,9 +68,20 @@ export class ModelService {
     }
   }
 
-  decorateModel(model: AbstractModel, decorator: ModelTypes) {
+  decorateModel(model: AbstractModel, decorator: any) {
+    let newModel!: AbstractModel;
 
-    let newModel = new GameModel(model)
+    switch(decorator.index) {
+      case (ModelTypes.GameModel):
+        newModel = new GameModel(model)
+        break;
+      case (ModelTypes.Render):
+        newModel = new GameModel(model)
+        break;
+      default: 
+        newModel = model
+    }
+
 
     newModel.setName(model.getName())
 

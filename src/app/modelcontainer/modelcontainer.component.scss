@@ -18,10 +18,15 @@
     .actions {
         grid-area: actions;
         background-color: rgb(209, 209, 209);
+
+        .custom-actions {
+            margin-top: 20px;
+        }
     }
 
     .image {
         grid-area: model;
+        background-color: #3c3c3c;
         div {
             display:flex;
             align-items: center;
@@ -54,8 +59,9 @@
 
             .decorator {
                 width: 100px;
-                height: 100px;
-                border-radius: 20px;
+                height: 50px;
+                cursor: pointer;
+                border-radius: 5px;
                 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.324);
                 display: flex;
                 flex-direction: column;
@@ -63,6 +69,11 @@
                 align-items: center;
                 box-sizing: border-box;
                 background-color: rgb(243, 243, 243);
+                transition-duration: .3s;
+
+                &:hover {
+                    background-color: white
+                }
             }
         }
     }
@@ -72,4 +83,8 @@
         background-color: rgb(209, 209, 209);
     }
 
+}
+
+.full-width {
+    width:100%;
 }

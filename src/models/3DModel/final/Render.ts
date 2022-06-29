@@ -1,4 +1,3 @@
-import { TextureQuality } from '../../Enums/GameModelEnums';
 import { ModelDecorator } from '../Model.decorator';
 
 export class Render extends ModelDecorator {
@@ -9,14 +8,18 @@ export class Render extends ModelDecorator {
     public hasLighting = () => this.lighting;
     public makeLighting = () => {
         this.lighting ? this.lighting = true : null
-        };
+    };
 
     public hasMetarials = () => this.materials;
     public setMaterials = () => {
         this.materials = true;
-        this.addTimeSpent(60);
+        this.addTimeSpent(Math.max(this.getPolygonCount()/500, 10));
+    }
+
+    public isRendered = () => this.rendered;
+    public render() {
+        this.rendered = true;
+        this.addTimeSpent(this.getPolygonCount()/500);
     }
     
-
-
 }

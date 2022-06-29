@@ -20,9 +20,9 @@
             </mat-select>
         </mat-form-field>
 
-        <button mat-raised-button color="primary" (click)="model.addPolygonCount(model.getPolygonCount() * 1.25)">Modeluj</button>
+        <button mat-raised-button color="primary" class="full-width" (click)="model.addPolygonCount(model.getPolygonCount() * 1.25)">Modeluj</button>
 
-        <div [ngSwitch]="model.constructor.name">
+        <div class="custom-actions" [ngSwitch]="model.constructor.name">
             <app-game-model-actions 
                 *ngSwitchCase="'GameModel'"
                 [model]="asGameModel(model)"
