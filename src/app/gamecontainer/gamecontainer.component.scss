@@ -42,6 +42,16 @@
             &:first-child {
                 padding: 7px 5px;
             }
+            
+            &:last-child {
+                padding: 6px 3px;
+                margin-top: auto;
+                background-color: #864343;
+
+                &:hover{
+                    background-color: #c62727;
+                }
+            }
         }
     }
 }

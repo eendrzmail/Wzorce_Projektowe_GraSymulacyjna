@@ -5,7 +5,9 @@
             dropzone="move"
         >
             <mat-icon>add_box</mat-icon>
-            Nowy model</div>
+            Nowy model
+        </div>
+
         <div 
             class="object"
             *ngFor="let model of models | async as AbstractModel"
@@ -14,6 +16,14 @@
                 [model]="model"
                 (changeModel)=this.selectModel($event)
             ></app-list-item>
+        </div>
+
+        <div class="object"
+            (click)="resetModels()"
+            dropzone="move"
+        >
+            <mat-icon>delete</mat-icon>
+            Resetuj modele
         </div>
     </div>
     <div class="model-container">

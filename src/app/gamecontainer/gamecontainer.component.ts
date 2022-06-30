@@ -29,5 +29,9 @@ export class GamecontainerComponent implements OnInit {
     // this.modelService.selectModel(model)
   }
 
+  resetModels() {
+    this.modelService.resetModels()
+  }
+
 
 }
