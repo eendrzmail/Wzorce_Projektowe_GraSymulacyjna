@@ -3,6 +3,8 @@ import { TaskBuilder } from './../../models/Task/Task.abstract';
 import { ModelService } from './../../services/model.service';
 import { AbstractModel } from 'src/models/3DModel/Model.abstract';
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-task',
@@ -13,7 +15,8 @@ export class TaskComponent implements OnInit {
 
   constructor(
     private modelsService: ModelService,
-    private taskService: TaskService
+    private taskService: TaskService,
+    private _snackBar: MatSnackBar
   ) { }
 
   currentTask: TaskBuilder = this.taskService.getCurrentTask();
@@ -28,17 +31,33 @@ export class TaskComponent implements OnInit {
   }
 
   completeTask() {
-    switch (this.taskService.completeCurrentTask(this.models)) {
-      case true:
-        this.currentTask = this.taskService.getCurrentTask()
-        break;
-      case false:
-        break;
-      case "finish":
-        console.log("gra skończona");
+    try {
+      switch (this.taskService.completeCurrentTask(this.models)) {
+        case true:
+          this.currentTask = this.taskService.getCurrentTask()
+          this.openSnackBar("✅ Zadanie wykoanane", "Schowaj", 'green')
+          break;
+        case false:
+          this.openSnackBar("Coś nie tak, zmodyfikuj modele i spróbuj jeszcze raz", "Schowaj", 'red')
+          return;
+          break;
+        case "finish":
+          console.log("gra skończona");
+          this.openSnackBar("🥳 Gratulacje! Gra skończona", "Schowaj", "blue")
 
-        break;
+          break;
+      }
+
+      this.modelsService.resetModels();
     }
+    catch (e) {
+      this.openSnackBar("Coś nie tak, zmodyfikuj modele i spróbuj jeszcze raz", "Schowaj", 'red')
+    }
+
+  }
+
+  private openSnackBar(message: string, action: string, type: "green" | "red" | "blue") {
+    this._snackBar.open(message, action, { panelClass: type, duration: 5000 });
   }
 
 }

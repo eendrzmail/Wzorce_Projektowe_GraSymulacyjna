@@ -17,6 +17,7 @@ import { NewmodelComponent } from './modelcontainer/components/newmodel/newmodel
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { FormsModule } from '@angular/forms';
 import { EnumPipe } from './pipes/enum.pipe';
@@ -65,7 +66,8 @@ import { PrintModelActionsComponent } from './modelcontainer/components/actions/
     MatInputModule,
     FormsModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

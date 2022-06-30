@@ -25,6 +25,10 @@ export class ModelService {
   constructor() {
   }
 
+  resetModels() {
+    this.subject.next([])
+  }
+
   selectModel(model: AbstractModel | null) {
     model
       ? this.selectedModelId = model.getId()
