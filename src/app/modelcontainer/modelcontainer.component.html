@@ -4,7 +4,7 @@
 
 <div class="edit-model" *ngIf="model">
     <div class="actions">
-        <h2>Typ: {{model.constructor.name}}</h2>
+        <h2>Typ: {{model.className}}</h2>
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Nazwa</mat-label>
@@ -22,7 +22,7 @@
 
         <button mat-raised-button color="primary" class="full-width" (click)="model.addPolygonCount(model.getPolygonCount() * 1.25)">Modeluj</button>
 
-        <div class="custom-actions" [ngSwitch]="model.constructor.name">
+        <div class="custom-actions" [ngSwitch]="model.className">
             <app-game-model-actions 
                 *ngSwitchCase="'GameModel'"
                 [model]="asGameModel(model)"
@@ -67,7 +67,7 @@
                 </tr>
             </table>
     
-            <div [ngSwitch]="model.constructor.name">
+            <div [ngSwitch]="model.className">
                 <app-game-model-stats 
                     *ngSwitchCase="'GameModel'"
                     [model]="asGameModel(model)"

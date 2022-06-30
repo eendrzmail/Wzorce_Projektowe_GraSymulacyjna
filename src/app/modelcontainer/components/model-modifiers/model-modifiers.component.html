@@ -15,7 +15,7 @@
             *ngFor="let modifier of model.getModifiers()"
         >
             <td>
-                {{modifier.constructor.name}}
+                {{modifier.className}}
             </td>
             <td>
                 <button mat-raised-button color="primary" (click)="modifier.apply()">Zatwierdź</button>

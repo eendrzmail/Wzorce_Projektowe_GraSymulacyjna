@@ -6,6 +6,7 @@ export class PrintModel extends ModelDecorator {
     private processed: boolean = false;
     private material!: PrintingMaterials;
     private supports: boolean = false;
+    readonly className: String = "PrintModel";
 
     public isProcessed = () => this.processed;
     public process = () => {

@@ -3,6 +3,7 @@ import { AbstractModifier } from "../Modifiers/Modifier.abstract";
 export abstract class AbstractModel {
 
     protected id = Date.now() + +((Math.random() * 10).toFixed());
+    readonly className: String = "Model";
     public name = 'Nowy model';
     protected composite!: boolean;
     protected polygonCount: number = 0;

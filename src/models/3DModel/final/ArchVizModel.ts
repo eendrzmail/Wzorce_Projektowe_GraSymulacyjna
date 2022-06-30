@@ -7,6 +7,7 @@ export class ArchVizModel extends ModelDecorator {
     private rendered: boolean = false;
     private textureQuality!: TextureQuality;
     private UVunwrapped: boolean = false;
+    readonly className: String = "ArchVizModel";
 
     public hasLighting = () => this.lighting;
     public makeLighting = () => {

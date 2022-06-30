@@ -4,6 +4,7 @@ export class CompositeModel extends AbstractModel {
 
     protected models: AbstractModel[] = [];
     static instanceCounter = 0;
+    readonly className = "Kolekcja";
 
     constructor() {
         super();

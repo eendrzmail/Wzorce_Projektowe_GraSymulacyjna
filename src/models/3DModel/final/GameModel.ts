@@ -5,6 +5,7 @@ export class GameModel extends ModelDecorator {
     private textureQuality!: TextureQuality;
     private UVunwrapped: boolean = false;
     private rigged: boolean = false;
+    readonly className: String = "GameModel";
 
     public isRigged = () => this.rigged
 

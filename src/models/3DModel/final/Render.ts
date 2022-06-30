@@ -6,6 +6,7 @@ export class Render extends ModelDecorator {
     private materials: boolean = false;
     private rendered: boolean = false;
     private camera: boolean = false;
+    readonly className: String = "Render";
 
     public hasLighting = () => this.lighting;
     public makeLighting = () => {

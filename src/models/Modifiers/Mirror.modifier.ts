@@ -3,6 +3,9 @@ import { AbstractModifier } from "./Modifier.abstract";
 
 export class MirrorModifier extends AbstractModifier {
 
+    readonly className: String = "MirrorModifier";
+
+
     public apply(): void {
         this.parent.setPolygonCount(this.parent.getPolygonCount() * 2)
         // parent.setPolygonCount(parent.getPolygonCount() * 2)

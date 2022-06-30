@@ -22,7 +22,7 @@ export class TaskService {
     new TaskBuilder({
       desc: "Stwórz GameModel",
       longDesc: "Stwórz jakikolwiek model do gry",
-      goalFn: (models: AbstractModel[]) => models.some(x => x.constructor.name == "GameModel"),
+      goalFn: (models: AbstractModel[]) => models.some(x => x.className == "GameModel"),
       pointsFn: (models: AbstractModel[]) => 100
     }),
     new TaskBuilder({
@@ -45,7 +45,7 @@ export class TaskService {
         const y: ArchVizModel = this.asArchVizModel(x);
 
         return y.isComposite() &&
-          y.constructor.name == 'ArchVizModel' &&
+          y.className == 'ArchVizModel' &&
           y.getModels().length == 2 &&
           y.getModels().every(z => !z.isComposite()) &&
           y.isRendered()
@@ -84,8 +84,8 @@ export class TaskService {
         let y = this.asPrintModel(x)
         const txtr = y.getMaterial() as any
 
-        return y.constructor.name == "PrintModel" &&
-          Array.from(y.getModifiers()).find(m => m.constructor.name == 'SubdivisionSurfaceModifier') &&
+        return y.className == "PrintModel" &&
+          Array.from(y.getModifiers()).find(m => m.className == 'SubdivisionSurfaceModifier') &&
           y.getPolygonCount() > 8000 &&
           txtr?.index == PrintingMaterials.Żywica
       }),
@@ -103,7 +103,7 @@ export class TaskService {
         let y = this.asArchVizModel(x)
         let children = Array.from(x.getModels())
 
-        return y.constructor.name == "ArchVizModel" &&
+        return y.className == "ArchVizModel" &&
           y.isComposite() &&
           y.isRendered() &&
           children.find(c => {
@@ -138,10 +138,10 @@ export class TaskService {
         let mods = Array.from(y.getModifiers())
         const txtr = y.getMaterial() as any
 
-        return y.constructor.name == "PrintModel" &&
-          Array.from(y.getModifiers()).find(m => m.constructor.name == 'SubdivisionSurfaceModifier') &&
-          mods.find(m => m.constructor.name == 'MirrorModifier') &&
-          mods.find(m => m.constructor.name == 'SubdivisionSurfaceModifier') &&
+        return y.className == "PrintModel" &&
+          Array.from(y.getModifiers()).find(m => m.className == 'SubdivisionSurfaceModifier') &&
+          mods.find(m => m.className == 'MirrorModifier') &&
+          mods.find(m => m.className == 'SubdivisionSurfaceModifier') &&
           y.isProcessed() &&
           txtr?.index == PrintingMaterials.Plastik
       }),
