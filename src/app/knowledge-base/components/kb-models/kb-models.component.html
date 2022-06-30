@@ -1,0 +1,95 @@
+<h1>Modele</h1>
+
+<h2>Ogólna wiedza o modelach 3D</h2>
+<p>
+    Model 3D składa się z punktów w przestrzeni trójwymiarowej zwanych vertexami. <br/>
+    Połączenie 2 punktów daje krawędź, a 3 lub więcej - ścianę. <br/>
+    Aby lepiej zapanować nad rozmieszczeniem vertexów oraz szybciej stworzyć model, stosuje się modyfikatory.
+</p>
+
+<h2>
+    Zwykły model
+</h2>
+<p>
+    Po dodawniu nowego modelu, możesz go modelować - akcja ta dodaje vertexów a także pochłania trochę czasu.<br/>
+    Możesz modelować zarówno zwykły obiekt, jak i kolekcję obiektów.<br/>
+    Na zwykły model, możesz róznież nałożyć modyfikator.<br/>
+    Modyfikatory można ze soba łączyć, a nawet powielać <br/>
+    (np. podwójne uzycie modyfikatora Mirror aby uzyskać odbicie lustrzane w osi X oraz Y)
+    <br/>
+    Aby jednak stworzyć gotowy produkt, należy go opakować w jeden z dostępnych Dekoratorów
+</p>
+
+<h1>
+    Dekoratory
+</h1>
+
+<h3>
+    Dekoratorów można używać zarówno na pojedynczym modelu, jak i na kolekcji
+</h3>
+
+<h2>
+    GameModel
+</h2>
+<p>
+    Jest to Dekorator do przygotowywania modeli 3D z myślą o zastosowaniu ich w grach.<br/>
+    Modele do gier nie mogą mieć za dużo vertexów, ponieważ wymagają wtedy dużo większej mocy obliczerniowej do ich wyświetlenia.<br/>
+    W celu optymalizacji, stosuje się tekstury, które dodają więcej szczegółow, niż te na które pozwala sama siatka modelu.<br/>
+</p>
+<div class="left">
+    <br/>
+    Akcje: <br/>
+    • Stworzenie UV mapy - rozłożenie modelu na płaszczyznę 2D. Jest to konieczny krok jeśli model ma mieć tekstury.<br/>
+    • Teksturowanie - dodanie map (np. koloru, fałszywej głębi) Dodaje kolory oraz fałszywe szczeóły do modelu.<br/>
+    • Tworzenie szkieletu - Szkielet jest wymagany, jeśli model ma być animowany w grze (np. postać)
+</div>
+
+<h2>
+    ArvhVizModel
+</h2>
+<p>
+    Model przeznaczony do wizualizacji architektonicznych. <br/>
+    Efektem końcowym może być zarówno obraz 2D, jak i cała scena 3D.<br/>
+    W takim modelu liczy się efekt końcowy, mniejszą wagę przypisuję się ilości vertexów i pamięci zajmowanej przez model
+</p>
+<div class="left">
+    <br/>
+    Akcje: <br/>
+    • Ustawienie światła - Aby na renderze było coś widać, światło w scenie powinno być odpowiednio ustawione <br/>
+    • Stworzenie UV mapy - rozłożenie modelu na płaszczyznę 2D. Jest to konieczny krok jeśli model ma mieć tekstury.<br/>
+    • Teksturowanie - Model architektoniczny może używać zarówno proceduralnych materiałów, jak i tekstur, w zalezności co jest łatwiejsze i zajmie mniej czasu<br/> 
+    • Stworzenie Materiałów - Stworzenie proceduralnych materiałów niewymagających rozkłądania modelu na UV mapę.<br/>
+    • Renderowanie - proces renderowania sceny na jak najlepszej jakości obraz 2D.
+</div>
+
+<h2>
+    Render
+</h2>
+<p>
+    Model przygotowany do stworzenia jak najlepszego renderu 2D. <br/>
+    W takim modelu stawia się na jak najlepszą jakość modelu, najwyższe możliwe rozdzielczości tekstur, czy szczegółowość maretiałów.<br/>
+</p>
+<div class="left">
+    <br/>
+    Akcje: <br/>
+    • Ustawienie światła - Aby model dobrze się prezentował, wymagane jest bardzo dobre ustawienie światła.<br/>
+    • Stworzenie Materiałów - Stworzenie proceduralnych materiałów niewymagających rozkłądania modelu na UV mapę.<br/>
+    • Ustawienie Kamery - Jedną z najwazniejszych rzeczy jest ustawienie wierualnej kamery. Stosuje się ona do takich samych zasad jak prawdziwa fotografia.<br/>
+    • Renderowanie - proces renderowania sceny na jak najlepszej jakości obraz 2D. Wymagane jest odpowiednie ustawienie kamery.
+</div>
+
+<h2>
+    Druk 3D
+</h2>
+<p>
+    Model przygotowany do druku 3D <br/>
+    Typ modely, którego zadaniem jest prawidłowe przygotowanie go do druku 3D.<br/>
+
+</p>
+<div class="left">
+    <br/>
+    Akcje: <br/>
+    • Przygotowanie do druku - Proces przetworzenia modelu na format obsługujący prze drukarki 3D. Wymagane wcześniejsze dodanie podpór.<br/>
+    • Dodanie podpór - Stworzenie podpór, które umożliwią drukowanie wystających elementów modelu.<br/>
+    • Ustawienie Materiału - Ustawienie materiału, z którego będzie drukowany model.<br/>
+</div>

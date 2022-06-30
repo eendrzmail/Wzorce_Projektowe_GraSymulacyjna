@@ -1,0 +1,19 @@
+.left {
+    text-align: left;
+}
+
+h1{
+    padding-top: 30px;
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        width: 20px;
+        height:2px;
+        background-color: white;
+    }
+}
+h2{
+    padding-top: 20px;
+}

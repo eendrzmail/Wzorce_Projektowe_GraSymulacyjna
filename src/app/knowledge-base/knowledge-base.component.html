@@ -1,7 +1,21 @@
 <div class="icons">
-    <mat-icon aria-hidden="false" aria-label="Example home icon">school</mat-icon>
-    <mat-icon>check_box_outline_blank</mat-icon>
+    <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="changePage(allPages.MAIN)">school</mat-icon>
+    <mat-icon (click)="changePage(allPages.MODELS)">token</mat-icon>
+    <mat-icon (click)="changePage(allPages.MODIFICATORS)">extension</mat-icon>
 </div>
 <div class="kb">
-    Oto baza wiedzy lewickiego
+    <div class="custom-actions" [ngSwitch]="selectedPage">
+        <app-kb-main 
+            *ngSwitchCase="allPages.MAIN"
+        ></app-kb-main>
+
+        <app-kb-models 
+            *ngSwitchCase="allPages.MODELS"
+        ></app-kb-models>
+
+        <app-kb-modifiers 
+            *ngSwitchCase="allPages.MODIFICATORS"
+        ></app-kb-modifiers>
+
+    </div>
 </div>

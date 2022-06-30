@@ -9,7 +9,22 @@ export class KnowledgeBaseComponent implements OnInit {
 
   constructor() { }
 
+  allPages = KBPage;
+  selectedPage: KBPage = KBPage.MAIN
+
   ngOnInit(): void {
   }
 
+  changePage(page: KBPage) {
+    this.selectedPage = page;
+  }
+
+
+
+}
+
+enum KBPage {
+  MAIN,
+  MODELS,
+  MODIFICATORS
 }

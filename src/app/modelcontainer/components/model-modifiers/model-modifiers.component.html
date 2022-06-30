@@ -1,6 +1,8 @@
 <div class="add-modifier">
-    Dodaj modyfikator:
-    <br/>
+    <div class="extension">
+        <mat-icon>extension</mat-icon>
+        Dodaj modyfikator:
+    </div>
     <button mat-raised-button 
         *ngFor="let modifier of enum | enum"
         (click)="addModifier(modifier.index)" 

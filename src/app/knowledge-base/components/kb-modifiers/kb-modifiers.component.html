@@ -1,0 +1,44 @@
+<h1>
+    Modyfikatory
+</h1>
+
+<p>
+    Modyfikatory zmieniają model 3D w okroślony przez sibie sposób.<br/>
+    Pozwalają zaoszczędzić czas podczas tworzenia modelu, lub lepiej zoptymalizaować model.<br/>
+    Modyfikatory działają już po dodaniu ich do modelu, jednak realne vertexy dodają się dopiero po ich zaakceptowaniu.
+</p>
+
+<h2>
+    Mirror
+</h2>
+<p>
+    Modyfikator tworzy lustrzane odbicie modelu wzdłuż którejś z osi.<br/>
+    Zaoszczędza to czas, gdy artysta modeluje symetryczny model, np człowieka.<br/>
+    Modyfikator zwiększa ilość vertexów * 2, nie zwiększając przy tym czasu pracy.
+</p>
+
+<img src="assets/modifiers/mirror.png" alt="mirror modifier">
+
+<h2>
+    Subdivision Surface
+</h2>
+<p>
+    Modyfikator dzieli każdą ze ścian prowadząc cięcie przez każdą krawędź.<br/>
+    Wygładza to powierzchnię, oraz pozwala na zawarcie więcej szczegółów.<br/>
+    Modyfikator zwiększa ilość vertexów * 4, nie zwiększając przy tym czasu pracy.
+</p>
+
+<img src="assets/modifiers/subdsurface.png" alt="mirror modifier">
+
+<h2>
+    Remesh
+</h2>
+<p>
+    Modyfikator próbuje zmniejszyć liczbę vertexów, próbując jak najlepiej zachować oryginalny kształt.<br/>
+    Wygładza to powierzchnię, oraz pozwala na zawarcie więcej szczegółów.<br/>
+    Przyjęto, że modyfikator wykonuje działanie odwrotne do Subdivision Surface (zamienia 4 kwadratowe ściany w 1) zmniejszając ilość vertexów 4 razy, nie zwiększając przy tym czasu pracy.
+</p>
+
+<img src="assets/modifiers/retopo.png" alt="mirror modifier">
+
+<h2></h2>

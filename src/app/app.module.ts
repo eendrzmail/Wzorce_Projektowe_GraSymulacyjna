@@ -32,6 +32,9 @@ import { RenderModelStatsComponent } from './modelcontainer/components/stats/ren
 import { ArchvizModelStatsComponent } from './modelcontainer/components/stats/archviz-model-stats/archviz-model-stats.component';
 import { PrintModelStatsComponent } from './modelcontainer/components/stats/print-model-stats/print-model-stats.component';
 import { PrintModelActionsComponent } from './modelcontainer/components/actions/print-model-actions/print-model-actions.component';
+import { KbMainComponent } from './knowledge-base/components/kb-main/kb-main.component';
+import { KbModelsComponent } from './knowledge-base/components/kb-models/kb-models.component';
+import { KbModifiersComponent } from './knowledge-base/components/kb-modifiers/kb-modifiers.component';
 
 
 
@@ -57,6 +60,9 @@ import { PrintModelActionsComponent } from './modelcontainer/components/actions/
     ArchvizModelStatsComponent,
     PrintModelStatsComponent,
     PrintModelActionsComponent,
+    KbMainComponent,
+    KbModelsComponent,
+    KbModifiersComponent,
   ],
   imports: [
     BrowserModule,
